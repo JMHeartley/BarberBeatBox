@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
   }
 
   loadSongs(): Observable<Song[]> {
-    return this.http.get<{ songs: Song[]; }>('./assets/music/monodrone/forbidden-fruit/songs.json')
+    return this.http.get<{ songs: Song[]; }>('./assets/music/songs.json')
       .pipe(
         map(response => response.songs)
       );
