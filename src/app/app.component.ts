@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Song } from '../app/shared/song.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
@@ -9,32 +9,20 @@ import { Observable, map } from 'rxjs';
   styleUrls: []
 })
 export class AppComponent implements OnInit {
+  @ViewChild('audioPlayer', { static: true }) audioPlayer: ElementRef;
+
   title = 'BarberBeatBox';
   timeUTC: string;
   timeSinceStartInMilliseconds: number;
   nowPlaying: Song;
+  playlist: Song[];
+  nowPlayingAudioFilePath: string = '';
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    const timeRightNow = new Date();
-    this.timeUTC = timeRightNow.toISOString();
-
-    const streamStart = new Date(2023, 10, 20, 19, 1, 9, 69);
-    this.timeSinceStartInMilliseconds = Math.abs(timeRightNow.getTime() - streamStart.getTime());
-
     this.loadSongs().subscribe(songs => {
-      const totalDurationInSeconds = this.calcuateTotalDurationInSeconds(songs);
-
-      const timeSinceStartInSeconds = this.timeSinceStartInMilliseconds / 1000;
-      let currentPlaceInPlaylistInSeconds = Math.floor(timeSinceStartInSeconds % totalDurationInSeconds);
-      console.log("current place in playlist in seconds", currentPlaceInPlaylistInSeconds);
-
-      const currentSong = this.findSongPlayingAndPointInSong(songs, currentPlaceInPlaylistInSeconds);
-
-      console.log(`song playing at time for app is ${currentSong[0].title} at ${currentSong[1]} seconds`);
-
-      this.nowPlaying = currentSong[0];
+      this.playlist = songs;
     });
   }
 
@@ -74,4 +62,34 @@ export class AppComponent implements OnInit {
 
     return [null as any, 0]; // no song was found
   }
+
+  playSong(song: Song, startTime: number) {
+    this.nowPlaying = song;
+
+    this.nowPlayingAudioFilePath = `./assets/music/${song.audioFilePath}`;
+    const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
+    audio.load();
+    audio.currentTime = startTime;
+    audio.play();
+  }
+
+  playLivestream() {
+    const timeRightNow = new Date();
+    this.timeUTC = timeRightNow.toISOString();
+    const streamStart = new Date(2023, 10, 20, 19, 1, 9, 69);
+    this.timeSinceStartInMilliseconds = Math.abs(timeRightNow.getTime() - streamStart.getTime());
+
+    const totalDurationInSeconds = this.calcuateTotalDurationInSeconds(this.playlist);
+    const timeSinceStartInSeconds = this.timeSinceStartInMilliseconds / 1000;
+    let currentPlaceInPlaylistInSeconds = Math.floor(timeSinceStartInSeconds % totalDurationInSeconds);
+    console.log("Current place in playlist in seconds", currentPlaceInPlaylistInSeconds);
+
+    const currentSong = this.findSongPlayingAndPointInSong(this.playlist, currentPlaceInPlaylistInSeconds);
+
+    console.log(`The song ${currentSong[0].title} should be playing at ${currentSong[1]} seconds`);
+
+    this.playSong(currentSong[0], currentSong[1]);
+  }
+
+
 }

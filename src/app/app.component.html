@@ -4,5 +4,12 @@
 <p>how long has it been since stream start (in seconds)?></p>
 <p>{{this.timeSinceStartInMilliseconds}}</p>
 
-<p>what song should be playing right now?</p>
-<p>{{this.nowPlaying.title}}</p>
+<!-- <p>what song should be playing right now?</p>
+<p>{{this.nowPlaying.title}}</p> -->
+
+<audio #audioPlayer controls>
+    <source [src]="this.nowPlayingAudioFilePath" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+
+<button class="btn btn-primary" (click)="this.playLivestream()">Play Livestream</button>
