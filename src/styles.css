@@ -16,3 +16,126 @@ body {
 .control-large {
     height: 4rem !important;
 }
+
+.image-fluid {
+    width: auto;
+    object-fit: contain;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.form-range-thumb {
+    width: 0.5rem !important;
+}
+
+.vertical-center {
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .h-sm-auto {
+        height: auto !important;
+    }
+
+    .align-sm-middle {
+        vertical-align: middle !important;
+    }
+
+    .position-sm-absolute {
+        position: absolute !important;
+    }
+
+    .vertical-sm-center {
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .h-md-auto {
+        height: auto !important;
+    }
+
+    .align-md-middle {
+        vertical-align: middle !important;
+    }
+
+    .position-md-absolute {
+        position: absolute !important;
+    }
+
+    .vertical-md-center {
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .h-lg-auto {
+        height: auto !important;
+    }
+
+    .align-lg-middle {
+        vertical-align: middle !important;
+    }
+
+    .position-lg-absolute {
+        position: absolute !important;
+    }
+
+    .vertical-lg-center {
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .h-xl-auto {
+        height: auto !important;
+    }
+
+    .align-xl-middle {
+        vertical-align: middle !important;
+    }
+
+    .position-xl-absolute {
+        position: absolute !important;
+    }
+
+    .vertical-xl-center {
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1400px) {
+    .h-xxl-auto {
+        height: auto !important;
+    }
+
+    .align-xxl-middle {
+        vertical-align: middle !important;
+    }
+
+    .position-xxl-absolute {
+        position: absolute !important;
+    }
+
+    .vertical-xxl-center {
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+}

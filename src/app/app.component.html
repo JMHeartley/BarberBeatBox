@@ -14,40 +14,42 @@
 
 <button class="btn btn-primary" (click)="this.playLivestream()">Play Livestream</button> -->
 
-<div class="mx-4 h-100 d-flex flex-column">
+<div class="mx-4 h-100 h-sm-auto d-flex flex-column flex-sm-row position-sm-absolute vertical-sm-center">
 
-    <div class="flex-grow-1 d-flex align-items-center">
+    <div class="flex-grow-1 flex-sm-grow-0 col-sm-6 d-flex align-items-center">
         <img [src]="this.nowPlaying.albumCoverFilePath"
-            alt="Album art for {{this.nowPlaying.album}} by {{this.nowPlaying.artist}}" class="img-fluid">
+            alt="Album art for {{this.nowPlaying.album}} by {{this.nowPlaying.artist}}" class="image-fluid">
     </div>
 
-    <div class="my-1">
-        <h1 class="mb-0">{{this.nowPlaying.title}}</h1>
-        <div>from {{this.nowPlaying.album}}</div>
-        <div>by {{this.nowPlaying.artist}}</div>
-    </div>
-
-    <div class="my-3">
-        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0"
-            aria-valuemax="100" style="height: 0.5rem;">
-            <div class="progress-bar" style="width: 25%"></div>
+    <div class="col-sm-6 d-sm-flex flex-column justify-content-center px-sm-5 align-self-sm-end">
+        <div class="my-1 row g-0 m-0">
+            <h1 class="col-12">{{this.nowPlaying.title}}</h1>
+            <div class="col-12 col-sm-auto pe-sm-1">from {{this.nowPlaying.album}}</div>
+            <div class="col-12 col-sm-auto">by {{this.nowPlaying.artist}}</div>
         </div>
-        <div class="d-flex justify-content-between">
-            <div>9:54 PM</div>
-            <div>10:00 PM</div>
+
+        <div class="my-3">
+            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0"
+                aria-valuemax="100" style="height: 0.5rem;">
+                <div class="progress-bar" style="width: 25%"></div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div>9:54 PM</div>
+                <div>10:00 PM</div>
+            </div>
         </div>
-    </div>
 
-    <div class="my-4 d-flex justify-content-around align-items-center">
-        <img src="./assets/images/backward-step-solid.svg" class="img-fluid control-medium" />
-        <img src="./assets/images/play-solid.svg" class="img-fluid control-large" />
-        <img src="./assets/images/forward-step-solid.svg" class="img-fluid control-medium" />
-    </div>
+        <div class="my-5 py-4 d-flex justify-content-around align-items-center">
+            <img src="./assets/images/backward-step-solid.svg" class="img-fluid control-medium" />
+            <img src="./assets/images/play-solid.svg" class="img-fluid control-large" />
+            <img src="./assets/images/forward-step-solid.svg" class="img-fluid control-medium" />
+        </div>
 
-    <div class="my-4 d-flex justify-content-center align-items-center">
-        <img src="./assets/images/volume-high-solid.svg" alt="Volume control icon"
-            class="img-fluid control-small me-4" />
-        <input type="range" class="form-range w-75 ms-4" min="0" max="5" step="0.5" style="height: 0.25rem;">
+        <div class="my-4 d-flex justify-content-center align-items-center">
+            <img src="./assets/images/volume-high-solid.svg" alt="Volume control icon"
+                class="img-fluid control-small me-4" />
+            <input type="range" class="form-range w-75 ms-4" min="0" max="5" step="0.5" style="height: 0.25rem;">
+        </div>
     </div>
 
 </div>
