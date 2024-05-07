@@ -1,6 +1,3 @@
-<!-- <p>what song should be playing right now?</p>
-<p>{{this.nowPlaying.title}}</p> -->
-
 <audio #audioPlayer controls (ended)="this.playNextSong()">
     <source [src]="this.nowPlayingAudioFilePath" type="audio/wav">
     Your browser does not support the audio element.
