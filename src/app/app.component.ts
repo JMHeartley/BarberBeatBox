@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   timeUTC: string;
   timeSinceStartInMilliseconds: number;
   nowPlaying: Song;
+  isPlaying: boolean = false;
   playlist: Song[];
   nowPlayingAudioFilePath: string = '';
 
@@ -69,6 +70,7 @@ export class AppComponent implements OnInit {
     this.nowPlayingAudioFilePath = `./assets/music/${song.audioFilePath}`;
     const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
     audio.load();
+    this.isPlaying = true;
     audio.currentTime = startTime;
     audio.play();
   }
@@ -89,6 +91,16 @@ export class AppComponent implements OnInit {
     console.log(`The song ${currentSong[0].title} should be playing at ${currentSong[1]} seconds`);
 
     this.playSong(currentSong[0], currentSong[1]);
+  }
+
+  togglePlay() {
+    const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
+    if (this.isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+    this.isPlaying = !this.isPlaying;
   }
 
   playNextSong() {
