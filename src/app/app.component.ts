@@ -91,5 +91,10 @@ export class AppComponent implements OnInit {
     this.playSong(currentSong[0], currentSong[1]);
   }
 
-
+  playNextSong() {
+    const currentSongIndex = this.playlist.findIndex(song => song.title === this.nowPlaying.title);
+    const nextSongIndex = (currentSongIndex + 1) % this.playlist.length;
+    const nextSong = this.playlist[nextSongIndex];
+    this.playSong(nextSong, 0);
+  }
 }
