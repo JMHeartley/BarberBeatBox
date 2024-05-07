@@ -12,7 +12,6 @@ export class AppComponent implements OnInit {
   @ViewChild('audioPlayer', { static: true }) audioPlayer: ElementRef;
 
   title = 'BarberBeatBox';
-  timeUTC: string;
   nowPlaying: Song;
   isPlaying: boolean = false;
   isMuted: boolean = false;
@@ -80,7 +79,6 @@ export class AppComponent implements OnInit {
 
   playLivestream() {
     const timeRightNow = new Date();
-    this.timeUTC = timeRightNow.toISOString();
     const streamStart = new Date(2023, 10, 20, 19, 1, 9, 69);
     const timeSinceStartInMilliseconds = Math.abs(timeRightNow.getTime() - streamStart.getTime());
     const timeSinceStartInSeconds = timeSinceStartInMilliseconds / 1000;
