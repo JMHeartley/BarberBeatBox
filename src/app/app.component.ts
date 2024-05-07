@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   }
 
   loadSongs(): Observable<Song[]> {
-    return this.http.get<{ songs: Song[]; }>('./assets/music/songs.json')
+    return this.http.get<{ songs: Song[]; }>('assets/music/songs.json')
       .pipe(
         map(response => response.songs)
       );
@@ -67,7 +67,7 @@ export class AppComponent implements OnInit {
   playSong(song: Song, startTime: number) {
     this.nowPlaying = song;
 
-    this.nowPlayingAudioFilePath = `./assets/music/${song.audioFilePath}`;
+    this.nowPlayingAudioFilePath = `assets/music/${song.audioFilePath}`;
     const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
     audio.load();
     this.isPlaying = true;

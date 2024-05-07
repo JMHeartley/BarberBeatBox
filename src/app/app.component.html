@@ -19,7 +19,7 @@
                 <div class="col-12 col-sm-auto">by {{this.nowPlaying.artist}}</div>
             </div>
             <button type="button" class="flex-shrink-1 btn btn-light" (click)="this.playLivestream()">
-                <img src="./assets/images/tower-broadcast-solid.svg" alt="Radio tower icon"
+                <img src="assets/images/tower-broadcast-solid.svg" alt="Radio tower icon"
                     class="img-fluid control-small">
                 LIVESTREAM
             </button>
@@ -38,32 +38,32 @@
 
         <div class="my-5 my-sm-4 py-4 py-sm-2 d-flex justify-content-around align-items-center">
             <button type="button" class="btn btn-light" (click)="this.playPreviousSong()">
-                <img src="./assets/images/backward-step-solid.svg" class="img-fluid control-medium" />
+                <img src="assets/images/backward-step-solid.svg" class="img-fluid control-medium" />
             </button>
 
             <button type="button" class="btn btn-light" (click)="this.togglePlay()">
-                <img [ngClass]="{'d-none': this.isPlaying}" src="./assets/images/play-solid.svg"
+                <img [ngClass]="{'d-none': this.isPlaying}" src="assets/images/play-solid.svg"
                     class="img-fluid control-large" />
-                <img [ngClass]="{'d-none': !this.isPlaying}" src="./assets/images/pause-solid.svg"
+                <img [ngClass]="{'d-none': !this.isPlaying}" src="assets/images/pause-solid.svg"
                     class="img-fluid control-large" />
             </button>
 
             <button type="button" class="btn btn-light" (click)="this.playNextSong()">
-                <img src="./assets/images/forward-step-solid.svg" class="img-fluid control-medium" />
+                <img src="assets/images/forward-step-solid.svg" class="img-fluid control-medium" />
             </button>
         </div>
 
         <div class="my-4 my-sm-auto d-flex justify-content-center align-items-center">
             <button type="button" class="btn btn-light me-4" (click)="this.toggleMute()">
-                <img [ngClass]="{'d-none': !this.isMuted}" src="./assets/images/volume-xmark-solid.svg"
+                <img [ngClass]="{'d-none': !this.isMuted}" src="assets/images/volume-xmark-solid.svg"
                     alt="Volume Muted icon" class="img-fluid control-small" />
                 <div [ngClass]="{'d-none': this.isMuted}">
-                    <img [ngClass]="{'d-none': this.volume > 0.15}" src="./assets/images/volume-off-solid.svg"
+                    <img [ngClass]="{'d-none': this.volume > 0.15}" src="assets/images/volume-off-solid.svg"
                         alt="Volume control icon" class="img-fluid control-small" />
                     <img [ngClass]="{'d-none': this.volume <= 0.15 || this.volume > 0.60}"
-                        src="./assets/images/volume-low-solid.svg" alt="Volume control icon"
+                        src="assets/images/volume-low-solid.svg" alt="Volume control icon"
                         class="img-fluid control-small" />
-                    <img [ngClass]="{'d-none': this.volume <= 0.60}" src="./assets/images/volume-high-solid.svg"
+                    <img [ngClass]="{'d-none': this.volume <= 0.60}" src="assets/images/volume-high-solid.svg"
                         alt="Volume control icon" class="img-fluid control-small" />
                 </div>
             </button>
