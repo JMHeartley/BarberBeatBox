@@ -103,6 +103,13 @@ export class AppComponent implements OnInit {
     this.isPlaying = !this.isPlaying;
   }
 
+  playPreviousSong() {
+    const currentSongIndex = this.playlist.findIndex(song => song.title === this.nowPlaying.title);
+    const previousSongIndex = (currentSongIndex - 1 + this.playlist.length) % this.playlist.length;
+    const previousSong = this.playlist[previousSongIndex];
+    this.playSong(previousSong, 0);
+  }
+
   playNextSong() {
     const currentSongIndex = this.playlist.findIndex(song => song.title === this.nowPlaying.title);
     const nextSongIndex = (currentSongIndex + 1) % this.playlist.length;

@@ -46,7 +46,9 @@
         </div>
 
         <div class="my-5 my-sm-4 py-4 py-sm-2 d-flex justify-content-around align-items-center">
-            <img src="./assets/images/backward-step-solid.svg" class="img-fluid control-medium" />
+            <button type="button" class="btn btn-light" (click)="this.playPreviousSong()">
+                <img src="./assets/images/backward-step-solid.svg" class="img-fluid control-medium" />
+            </button>
 
             <button type="button" class="btn btn-light" (click)="this.togglePlay()">
                 <img [ngClass]="{'d-none': this.isPlaying}" src="./assets/images/play-solid.svg"
