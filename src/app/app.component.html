@@ -50,7 +50,9 @@
         <div class="my-5 my-sm-4 py-4 py-sm-2 d-flex justify-content-around align-items-center">
             <img src="./assets/images/backward-step-solid.svg" class="img-fluid control-medium" />
             <img src="./assets/images/play-solid.svg" class="img-fluid control-large" />
-            <img src="./assets/images/forward-step-solid.svg" class="img-fluid control-medium" />
+            <button type="button" class="btn btn-light" (click)="this.playNextSong()">
+                <img src="./assets/images/forward-step-solid.svg" class="img-fluid control-medium" />
+            </button>
         </div>
 
         <div class="my-4 my-sm-auto d-flex justify-content-center align-items-center">
