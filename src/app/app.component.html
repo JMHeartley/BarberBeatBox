@@ -63,8 +63,12 @@
         </div>
 
         <div class="my-4 my-sm-auto d-flex justify-content-center align-items-center">
-            <img src="./assets/images/volume-high-solid.svg" alt="Volume control icon"
-                class="img-fluid control-small me-4" />
+            <button type="button" class="btn btn-light me-4" (click)="this.toggleMute()">
+                <img [ngClass]="{'d-none': !this.isMuted}" src="./assets/images/volume-xmark-solid.svg"
+                    alt="Volume Muted icon" class="img-fluid control-small" />
+                <img [ngClass]="{'d-none': this.isMuted}" src="./assets/images/volume-high-solid.svg"
+                    alt="Volume control icon" class="img-fluid control-small" />
+            </button>
             <input type="range" class="form-range w-75 ms-4" min="0" max="5" step="0.5" style="height: 0.25rem;">
         </div>
     </div>
