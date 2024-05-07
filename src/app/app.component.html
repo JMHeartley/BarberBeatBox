@@ -23,10 +23,17 @@
     </div>
 
     <div class="col-sm-6 d-sm-flex flex-column justify-content-center ps-sm-5 align-self-sm-end">
-        <div class="mb-3 mb-sm-auto row g-0 m-0">
-            <h1 class="col-12 mb-0 fs-sm-3">{{this.nowPlaying.title}}</h1>
-            <div class="col-12 col-sm-auto pe-sm-1">from {{this.nowPlaying.album}}</div>
-            <div class="col-12 col-sm-auto">by {{this.nowPlaying.artist}}</div>
+        <div class="mb-3 mb-sm-auto d-flex align-items-center">
+            <div class="row g-0 m-0">
+                <h1 class="col-12 mb-0 fs-sm-3">{{this.nowPlaying.title}}</h1>
+                <div class="col-12 col-sm-auto pe-sm-1">from {{this.nowPlaying.album}}</div>
+                <div class="col-12 col-sm-auto">by {{this.nowPlaying.artist}}</div>
+            </div>
+            <button type="button" class="flex-shrink-1 btn btn-light" (click)="this.playLivestream()">
+                <img src="./assets/images/tower-broadcast-solid.svg" alt="Radio tower icon"
+                    class="img-fluid control-medium">
+                LIVESTREAM
+            </button>
         </div>
 
         <div class="mb-3 mb-sm-auto mt-sm-3">
