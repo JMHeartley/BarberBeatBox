@@ -13,7 +13,6 @@ export class AppComponent implements OnInit {
 
   title = 'BarberBeatBox';
   timeUTC: string;
-  timeSinceStartInMilliseconds: number;
   nowPlaying: Song;
   isPlaying: boolean = false;
   isMuted: boolean = false;
@@ -83,10 +82,10 @@ export class AppComponent implements OnInit {
     const timeRightNow = new Date();
     this.timeUTC = timeRightNow.toISOString();
     const streamStart = new Date(2023, 10, 20, 19, 1, 9, 69);
-    this.timeSinceStartInMilliseconds = Math.abs(timeRightNow.getTime() - streamStart.getTime());
+    const timeSinceStartInMilliseconds = Math.abs(timeRightNow.getTime() - streamStart.getTime());
+    const timeSinceStartInSeconds = timeSinceStartInMilliseconds / 1000;
 
     const totalDurationInSeconds = this.calcuateTotalDurationInSeconds(this.playlist);
-    const timeSinceStartInSeconds = this.timeSinceStartInMilliseconds / 1000;
     let currentPlaceInPlaylistInSeconds = Math.floor(timeSinceStartInSeconds % totalDurationInSeconds);
     console.log("Current place in playlist in seconds", currentPlaceInPlaylistInSeconds);
 
