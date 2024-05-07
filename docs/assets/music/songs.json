@@ -1,0 +1,76 @@
+{
+    "songs": [
+        {
+            "title": "Grime On The Wall",
+            "duration": "04:09",
+            "artist": "Monodrone",
+            "album": "Forbidden Fruit",
+            "audioFilePath": "01_Grime_On_The_Wall.wav",
+            "albumCoverFilePath": "cover.png"
+        },
+        {
+            "title": "Forbidden Fruit",
+            "duration": "06:08",
+            "artist": "Monodrone",
+            "album": "Forbidden Fruit",
+            "audioFilePath": "02_Forbidden_Fruit.wav",
+            "albumCoverFilePath": "cover.png"
+        },
+        {
+            "title": "Street Art",
+            "duration": "06:09",
+            "artist": "Monodrone",
+            "album": "Forbidden Fruit",
+            "audioFilePath": "03_Street_Art.wav",
+            "albumCoverFilePath": "cover.png"
+        },
+        {
+            "title": "She Gets Me",
+            "duration": "03:13",
+            "artist": "Monodrone",
+            "album": "Forbidden Fruit",
+            "audioFilePath": "04_She_Gets_Me.wav",
+            "albumCoverFilePath": "cover.png"
+        },
+        {
+            "title": "High Income Slums",
+            "duration": "06:42",
+            "artist": "Monodrone",
+            "album": "Forbidden Fruit",
+            "audioFilePath": "05_High_Income_Slums.wav",
+            "albumCoverFilePath": "cover.png"
+        },
+        {
+            "title": "Submissive",
+            "duration": "05:27",
+            "artist": "Monodrone",
+            "album": "Forbidden Fruit",
+            "audioFilePath": "06_Submissive.wav",
+            "albumCoverFilePath": "cover.png"
+        },
+        {
+            "title": "Lost And Faded",
+            "duration": "03:30",
+            "artist": "Monodrone",
+            "album": "Forbidden Fruit",
+            "audioFilePath": "07_Lost_And_Faded.wav",
+            "albumCoverFilePath": "cover.png"
+        },
+        {
+            "title": "Tastes Like Iron",
+            "duration": "02:03",
+            "artist": "Monodrone",
+            "album": "Forbidden Fruit",
+            "audioFilePath": "08_Tastes_Like_Iron.wav",
+            "albumCoverFilePath": "cover.png"
+        },
+        {
+            "title": "Losing It",
+            "duration": "03:32",
+            "artist": "Monodrone",
+            "album": "Forbidden Fruit",
+            "audioFilePath": "09_Losing_It.wav",
+            "albumCoverFilePath": "cover.png"
+        }
+    ]
+}
