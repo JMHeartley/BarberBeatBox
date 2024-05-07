@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   nowPlaying: Song;
   isPlaying: boolean = false;
   isMuted: boolean = false;
+  volume: number = 0.5;
   playlist: Song[];
   nowPlayingAudioFilePath: string = '';
 
@@ -74,6 +75,7 @@ export class AppComponent implements OnInit {
     this.isPlaying = true;
     audio.currentTime = startTime;
     audio.muted = this.isMuted;
+    audio.volume = this.volume;
     audio.play();
   }
 
@@ -123,5 +125,11 @@ export class AppComponent implements OnInit {
     const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
     audio.muted = !audio.muted;
     this.isMuted = audio.muted;
+  }
+
+  updateVolume() {
+    const audio = this.audioPlayer.nativeElement as HTMLAudioElement;
+    console.log("Volume", this.volume);
+    audio.volume = this.volume;
   }
 }

@@ -69,7 +69,8 @@
                 <img [ngClass]="{'d-none': this.isMuted}" src="./assets/images/volume-high-solid.svg"
                     alt="Volume control icon" class="img-fluid control-small" />
             </button>
-            <input type="range" class="form-range w-75 ms-4" min="0" max="5" step="0.5" style="height: 0.25rem;">
+            <input type="range" class="form-range w-75 ms-4" style="height: 0.25rem;" min="0" max="1" step="0.01"
+                [(ngModel)]="volume" (change)="this.updateVolume()">
         </div>
     </div>
 
