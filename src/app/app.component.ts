@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   volume: number = 0.5;
   currentTime: number;
   remainingTime: number;
+  songProgressPercentage: number;
   playlist: Song[];
   nowPlayingAudioFilePath: string = '';
 
@@ -135,6 +136,7 @@ export class AppComponent implements OnInit {
   updateTime(event: any) {
     this.currentTime = event.target.currentTime;
     this.remainingTime = this.currentTime - event.target.duration;
+    this.songProgressPercentage = (this.currentTime / event.target.duration) * 100;
   }
 
   formatTime(time: number): string {
