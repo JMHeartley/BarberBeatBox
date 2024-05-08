@@ -53,7 +53,7 @@ function setup() {
 }
 
 function draw() {
-  // background(200, 200, 234, 200);
+  background(200, 200, 234, 0);
   // background(0)
 
   drawingContext.filter = 'blur(px)';
