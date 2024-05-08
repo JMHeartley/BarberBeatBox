@@ -143,6 +143,10 @@ function visualizerSetVolume(playerVolume) {
   }
 }
 
+function visualizerSetMute(isMuted) {
+  audio.setVolume(isMuted ? 0 : volume);
+}
+
 // function peakDetected() {
 //   console.log('peak detected')
 // }

@@ -7,6 +7,7 @@ declare function visualizerChangeSong(songFilePath: string, startTime: number): 
 declare function visualizerTogglePlay(isPlaying: boolean): void;
 declare function visualizerSeek(seekTime: number): void;
 declare function visualizerSetVolume(volume: number): void;
+declare function visualizerSetMute(isMuted: boolean): void;
 
 @Component({
   selector: 'app-root',
@@ -145,9 +146,10 @@ export class AppComponent implements OnInit {
   }
 
   toggleMute() {
+    this.isMuted = !this.isMuted;
     const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
-    audio.muted = !audio.muted;
-    this.isMuted = audio.muted;
+    audio.muted = this.isMuted;
+    visualizerSetMute(this.isMuted);
   }
 
   updateVolume() {
