@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
   isPlaying: boolean = false;
   isMuted: boolean = false;
   volume: number = 0.5;
+  currentTime: number;
+  remainingTime: number;
   playlist: Song[];
   nowPlayingAudioFilePath: string = '';
 
@@ -128,5 +130,26 @@ export class AppComponent implements OnInit {
     const audio = this.audioPlayer.nativeElement as HTMLAudioElement;
     console.log("Volume", this.volume);
     audio.volume = this.volume;
+  }
+
+  updateTime(event: any) {
+    this.currentTime = event.target.currentTime;
+    this.remainingTime = this.currentTime - event.target.duration;
+  }
+
+  formatTime(time: number): string {
+    if (isNaN(time)) {
+      return '00:00';
+    }
+
+    const absTime: number = Math.abs(time);
+    const minutes: number = Math.floor(absTime / 60);
+    const seconds: number = Math.floor(absTime % 60);
+    const formattedTime: string = `${time < 0 ? '-' : ''}${this.padZero(minutes)}:${this.padZero(seconds)}`;
+    return formattedTime;
+  }
+
+  private padZero(value: number): string {
+    return value < 10 ? '0' + value : '' + value;
   }
 }

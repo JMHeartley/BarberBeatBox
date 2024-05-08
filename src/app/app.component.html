@@ -1,4 +1,4 @@
-<audio #audioPlayer controls (ended)="this.playNextSong()">
+<audio #audioPlayer controls (timeupdate)="this.updateTime($event)" (ended)="this.playNextSong()">
     <source [src]="this.nowPlayingAudioFilePath" type="audio/wav">
     Your browser does not support the audio element.
 </audio>
@@ -31,8 +31,8 @@
                 <div class="progress-bar" style="width: 25%"></div>
             </div>
             <div class="d-flex justify-content-between">
-                <div>9:54 PM</div>
-                <div>10:00 PM</div>
+                <div>{{this.formatTime(this.currentTime)}}</div>
+                <div>{{this.formatTime(this.remainingTime)}}</div>
             </div>
         </div>
 
