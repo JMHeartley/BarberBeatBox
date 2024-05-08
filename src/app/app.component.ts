@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   title = 'BarberBeatBox';
   nowPlaying: Song;
   isPlaying: boolean = false;
+  isLive: boolean = true;
   isMuted: boolean = false;
   volume: number = 0.25;
   currentTime: number;
@@ -79,6 +80,8 @@ export class AppComponent implements OnInit {
   }
 
   playLivestream() {
+    this.isLive = true;
+
     const timeRightNow = new Date();
     const streamStart = new Date(2023, 10, 20, 19, 1, 9, 69);
     const timeSinceStartInMilliseconds = Math.abs(timeRightNow.getTime() - streamStart.getTime());
@@ -96,6 +99,8 @@ export class AppComponent implements OnInit {
   }
 
   togglePlay() {
+    this.isLive = false;
+
     const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
     if (this.isPlaying) {
       audio.pause();
@@ -105,11 +110,18 @@ export class AppComponent implements OnInit {
     this.isPlaying = !this.isPlaying;
   }
 
-  playPreviousSong() {
+  goToPreviousSong() {
+    this.isLive = false;
+
     const currentSongIndex = this.playlist.findIndex(song => song.title === this.nowPlaying.title);
     const previousSongIndex = (currentSongIndex - 1 + this.playlist.length) % this.playlist.length;
     const previousSong = this.playlist[previousSongIndex];
     this.playSong(previousSong, 0);
+  }
+
+  goToNextSong() {
+    this.isLive = false;
+    this.playNextSong();
   }
 
   playNextSong() {
@@ -154,6 +166,8 @@ export class AppComponent implements OnInit {
   }
 
   seek(event: MouseEvent) {
+    this.isLive = false;
+
     const progressBar = event.currentTarget as HTMLElement;
     const rect = progressBar.getBoundingClientRect();
     const offsetX = event.clientX - rect.left;

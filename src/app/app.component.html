@@ -18,7 +18,8 @@
                 <div class="col-12 col-sm-auto pe-sm-1">from {{this.nowPlaying.album}}</div>
                 <div class="col-12 col-sm-auto">by {{this.nowPlaying.artist}}</div>
             </div>
-            <button type="button" class="flex-shrink-1 btn btn-light" (click)="this.playLivestream()">
+            <button type="button" class="flex-shrink-1 btn {{ this.isLive ? 'btn-danger' : 'btn-light' }}"
+                (click)="this.playLivestream()">
                 <img src="assets/images/tower-broadcast-solid.svg" alt="Radio tower icon"
                     class="img-fluid control-small">
                 LIVESTREAM
@@ -37,7 +38,7 @@
         </div>
 
         <div class="my-5 my-sm-4 py-4 py-sm-2 d-flex justify-content-around align-items-center">
-            <button type="button" class="btn btn-light" (click)="this.playPreviousSong()">
+            <button type="button" class="btn btn-light" (click)="this.goToPreviousSong()">
                 <img src="assets/images/backward-step-solid.svg" class="img-fluid control-medium" />
             </button>
 
@@ -48,7 +49,7 @@
                     class="img-fluid control-large" />
             </button>
 
-            <button type="button" class="btn btn-light" (click)="this.playNextSong()">
+            <button type="button" class="btn btn-light" (click)="this.goToNextSong()">
                 <img src="assets/images/forward-step-solid.svg" class="img-fluid control-medium" />
             </button>
         </div>
