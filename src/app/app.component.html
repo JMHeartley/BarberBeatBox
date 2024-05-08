@@ -6,12 +6,13 @@
 <div
     class="container-fluid container-sm h-100 h-sm-auto d-flex flex-column flex-sm-row position-sm-absolute vertical-sm-center horizontal-sm-center max-h-sm-vh-75">
 
-    <div
-        class="flex-grow-1 flex-sm-grow-0 col-sm-6 d-flex align-items-center pb-1 pb-sm-auto pe-sm-5 position-relative">
-        <img [src]="this.prependFilePathPrefix(this.nowPlaying.albumCoverFilePath)"
-            alt="Album art for {{this.nowPlaying.album}} by {{this.nowPlaying.artist}}" class="image-fluid">
-        <div id="visualizer" class="position-absolute top-0 start-0 w-100 h-100">
-            <!-- audio visualizer inserts here -->
+    <div class="flex-grow-1 flex-sm-grow-0 col-sm-6 d-flex align-items-center pb-1 pb-sm-auto pe-sm-5">
+        <div class="position-relative">
+            <img [src]="this.prependFilePathPrefix(this.nowPlaying.albumCoverFilePath)"
+                alt="Album art for {{this.nowPlaying.album}} by {{this.nowPlaying.artist}}" class="image-fluid">
+            <div id="visualizer" class="position-absolute top-0 start-0 w-100 h-100">
+                <!-- audio visualizer inserts here -->
+            </div>
         </div>
     </div>
 
