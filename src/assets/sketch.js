@@ -30,8 +30,8 @@ function visualizerChangeSong(songFilePath, startTime) {
   audioFilePath = songFilePath;
   audio = loadSound(songFilePath, () => {
     audio.setVolume(volume);
-    audio.jump(startTime);
     audio.play();
+    audio.jump(startTime);
   });
 }
 
