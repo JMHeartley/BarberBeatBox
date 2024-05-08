@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
   remainingTime: number;
   songProgressPercentage: number;
   playlist: Song[];
-  nowPlayingAudioFilePath: string = '';
 
   constructor(private http: HttpClient) { }
 
@@ -70,7 +69,6 @@ export class AppComponent implements OnInit {
   playSong(song: Song, startTime: number) {
     this.nowPlaying = song;
 
-    this.nowPlayingAudioFilePath = `assets/music/${song.audioFilePath}`;
     const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
     audio.load();
     this.isPlaying = true;
@@ -161,5 +159,9 @@ export class AppComponent implements OnInit {
     const offsetX = event.clientX - rect.left;
     const seekTime = (offsetX / rect.width) * this.audioPlayer.nativeElement.duration;
     this.audioPlayer.nativeElement.currentTime = seekTime;
+  }
+
+  prependFilePathPrefix(filePath: string): string {
+    return `assets/music/${filePath}`;
   }
 }
