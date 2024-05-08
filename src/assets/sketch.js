@@ -10,12 +10,26 @@ let myShader;
 let angle = 0.0;
 let jitter = 0.0;
 
+let audioFilePath;
+
 function preload() {
   // audio = loadSound('assets/audio/Are you gonna dance or what.mp3');
   myShader = loadShader('assets/shader/vertex.vert', 'assets/shader/fragment.frag');
   frameRate(60);
 }
 
+function visualizerChangeSong(songFilePath) {
+  if (audio && audio.isPlaying()) {
+    audio.stop();
+  }
+
+  console.log('changing song to ' + songFilePath);
+
+  audioFilePath = songFilePath;
+  audio = loadSound(songFilePath, () => {
+    audio.play();
+  });
+}
 
 function setup() {
   let albumArt = select('#album-art');
