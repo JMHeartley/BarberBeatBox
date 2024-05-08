@@ -142,5 +142,6 @@ function visualizerSetMute(isMuted) {
 // }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  let albumArt = select('#album-art');
+  resizeCanvas(albumArt.width, albumArt.height);
 }
