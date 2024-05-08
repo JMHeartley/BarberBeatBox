@@ -154,4 +154,12 @@ export class AppComponent implements OnInit {
   private padZero(value: number): string {
     return value < 10 ? '0' + value : '' + value;
   }
+
+  seek(event: MouseEvent) {
+    const progressBar = event.currentTarget as HTMLElement;
+    const rect = progressBar.getBoundingClientRect();
+    const offsetX = event.clientX - rect.left;
+    const seekTime = (offsetX / rect.width) * this.audioPlayer.nativeElement.duration;
+    this.audioPlayer.nativeElement.currentTime = seekTime;
+  }
 }
