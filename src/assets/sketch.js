@@ -13,6 +13,7 @@ let jitter = 0.0;
 
 let audioFilePath;
 let volume;
+let shortestCanvasDimension;
 
 function preload() {
   // audio = loadSound('assets/audio/Are you gonna dance or what.mp3');
@@ -42,6 +43,8 @@ function visualizerSeek(time) {
 
 function setup() {
   let albumArt = select(`#${targetId}`);
+  shortestCanvasDimension = Math.min(albumArt.width, albumArt.height);
+
   let canvas = createCanvas(albumArt.width, albumArt.height, WEBGL);
   canvas.parent(targetId);
 
@@ -114,7 +117,9 @@ function draw() {
   myShader.setUniform('uAmp', mapV);
 
 
-  sphere(100, 400, 400);
+  const portionRatio = 0.28125;
+  let radius = shortestCanvasDimension * portionRatio;
+  sphere(radius, 400, 400);
 }
 
 function visualizerTogglePlay(isPlaying) {
@@ -145,4 +150,6 @@ function visualizerSetMute(isMuted) {
 function windowResized() {
   let albumArt = select(`#${targetId}`);
   resizeCanvas(albumArt.width, albumArt.height);
+
+  shortestCanvasDimension = Math.min(albumArt.width, albumArt.height);
 }
