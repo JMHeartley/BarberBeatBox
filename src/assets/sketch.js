@@ -6,7 +6,7 @@ let isPressed = false;
 // let peakDetect
 
 let myShader;
-const targetId = 'album-art';
+const targetId = 'visualizer';
 
 let angle = 0.0;
 let jitter = 0.0;
