@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   title = 'BarberBeatBox';
   nowPlaying: Song;
   isPlaying: boolean = false;
-  isLive: boolean = true;
+  isLive: boolean;
   isMuted: boolean = false;
   volume: number = 0.25;
   currentTime: number;
