@@ -1,4 +1,4 @@
-<audio #audioPlayer controls (timeupdate)="this.updateTime($event)" (ended)="this.playNextSong()">
+<audio #audioPlayer (timeupdate)="this.updateTime($event)" (ended)="this.playNextSong()">
     <source [src]="this.nowPlayingAudioFilePath" type="audio/wav">
     Your browser does not support the audio element.
 </audio>
