@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
 declare function visualizerChangeSong(songFilePath: string): void;
+declare function visualizerTogglePlay(isPlaying: boolean): void;
 
 @Component({
   selector: 'app-root',
@@ -75,10 +76,12 @@ export class AppComponent implements OnInit {
 
     const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
     audio.load();
-    this.isPlaying = true;
+
     audio.currentTime = startTime;
     audio.muted = this.isMuted;
     audio.volume = this.volume;
+
+    this.isPlaying = true;
     audio.play();
   }
 
@@ -110,6 +113,7 @@ export class AppComponent implements OnInit {
     } else {
       audio.play();
     }
+    visualizerTogglePlay(this.isPlaying);
     this.isPlaying = !this.isPlaying;
   }
 

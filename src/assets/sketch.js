@@ -118,6 +118,15 @@ function draw() {
 //     audio.loop();
 //   }
 // }
+function visualizerTogglePlay(isPlaying) {
+  if (isPlaying) {
+    audio.pause();
+  }
+  else {
+    audio.play();
+  }
+}
+
 
 // function peakDetected() {
 //   console.log('peak detected')
