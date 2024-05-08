@@ -19,9 +19,9 @@ export class AppComponent implements OnInit {
 
   title = 'BarberBeatBox';
   nowPlaying: Song;
-  isPlaying: boolean = false;
+  isPlaying: boolean;
   isLive: boolean;
-  isMuted: boolean = false;
+  isMuted: boolean;
   volume: number = 0.25;
   currentTime: number;
   remainingTime: number;
