@@ -3,7 +3,7 @@ import { Song } from '../app/shared/song.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
-declare function visualizerChangeSong(songFilePath: string): void;
+declare function visualizerChangeSong(songFilePath: string, startTime: number): void;
 declare function visualizerTogglePlay(isPlaying: boolean): void;
 
 @Component({
@@ -72,7 +72,6 @@ export class AppComponent implements OnInit {
 
   playSong(song: Song, startTime: number) {
     this.nowPlaying = song;
-    visualizerChangeSong(this.prependFilePathPrefix(song.audioFilePath));
 
     const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
     audio.load();
@@ -83,6 +82,7 @@ export class AppComponent implements OnInit {
 
     this.isPlaying = true;
     audio.play();
+    visualizerChangeSong(this.prependFilePathPrefix(song.audioFilePath), startTime);
   }
 
   playLivestream() {

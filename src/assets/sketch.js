@@ -18,15 +18,17 @@ function preload() {
   frameRate(60);
 }
 
-function visualizerChangeSong(songFilePath) {
+function visualizerChangeSong(songFilePath, startTime) {
   if (audio && audio.isPlaying()) {
     audio.stop();
   }
 
   console.log('changing song to ' + songFilePath);
+  console.log('starting song from ' + startTime);
 
   audioFilePath = songFilePath;
   audio = loadSound(songFilePath, () => {
+    audio.jump(startTime);
     audio.play();
   });
 }
