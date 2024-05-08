@@ -6,6 +6,7 @@ import { Observable, map } from 'rxjs';
 declare function visualizerChangeSong(songFilePath: string, startTime: number): void;
 declare function visualizerTogglePlay(isPlaying: boolean): void;
 declare function visualizerSeek(seekTime: number): void;
+declare function visualizerSetVolume(volume: number): void;
 
 @Component({
   selector: 'app-root',
@@ -32,6 +33,8 @@ export class AppComponent implements OnInit {
     this.loadSongs().subscribe(songs => {
       this.playlist = songs;
     });
+
+    visualizerSetVolume(this.volume);
   }
 
   loadSongs(): Observable<Song[]> {
@@ -79,7 +82,9 @@ export class AppComponent implements OnInit {
 
     audio.currentTime = startTime;
     audio.muted = this.isMuted;
+
     audio.volume = this.volume;
+    visualizerSetVolume(this.volume);
 
     this.isPlaying = true;
     audio.play();
@@ -149,6 +154,7 @@ export class AppComponent implements OnInit {
     const audio = this.audioPlayer.nativeElement as HTMLAudioElement;
     console.log("Volume", this.volume);
     audio.volume = this.volume;
+    visualizerSetVolume(this.volume);
   }
 
   updateTime(event: any) {

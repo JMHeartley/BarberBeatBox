@@ -11,6 +11,7 @@ let angle = 0.0;
 let jitter = 0.0;
 
 let audioFilePath;
+let volume;
 
 function preload() {
   // audio = loadSound('assets/audio/Are you gonna dance or what.mp3');
@@ -28,6 +29,7 @@ function visualizerChangeSong(songFilePath, startTime) {
 
   audioFilePath = songFilePath;
   audio = loadSound(songFilePath, () => {
+    audio.setVolume(volume);
     audio.jump(startTime);
     audio.play();
   });
@@ -133,6 +135,13 @@ function visualizerTogglePlay(isPlaying) {
   }
 }
 
+function visualizerSetVolume(playerVolume) {
+  volume = playerVolume;
+
+  if (audio) {
+    audio.setVolume(playerVolume);
+  }
+}
 
 // function peakDetected() {
 //   console.log('peak detected')
