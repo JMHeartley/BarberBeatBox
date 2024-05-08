@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   nowPlaying: Song;
   isPlaying: boolean = false;
   isMuted: boolean = false;
-  volume: number = 0.5;
+  volume: number = 0.25;
   currentTime: number;
   remainingTime: number;
   songProgressPercentage: number;
