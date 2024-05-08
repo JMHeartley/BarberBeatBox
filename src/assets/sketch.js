@@ -6,6 +6,7 @@ let isPressed = false;
 // let peakDetect
 
 let myShader;
+const targetId = 'album-art';
 
 let angle = 0.0;
 let jitter = 0.0;
@@ -40,9 +41,9 @@ function visualizerSeek(time) {
 }
 
 function setup() {
-  let albumArt = select('#album-art');
+  let albumArt = select(`#${targetId}`);
   let canvas = createCanvas(albumArt.width, albumArt.height, WEBGL);
-  canvas.parent('album-art');
+  canvas.parent(targetId);
 
   shader(myShader);
 
@@ -142,6 +143,6 @@ function visualizerSetMute(isMuted) {
 // }
 
 function windowResized() {
-  let albumArt = select('#album-art');
+  let albumArt = select(`#${targetId}`);
   resizeCanvas(albumArt.width, albumArt.height);
 }
