@@ -35,6 +35,8 @@ export class AppComponent implements OnInit {
       this.playlist = songs;
     });
 
+    const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
+    audio.muted = true;
     visualizerSetVolume(this.volume);
   }
 
@@ -82,7 +84,7 @@ export class AppComponent implements OnInit {
     audio.load();
 
     audio.currentTime = startTime;
-    audio.muted = this.isMuted;
+    // audio.muted = this.isMuted;
 
     audio.volume = this.volume;
     visualizerSetVolume(this.volume);
@@ -147,8 +149,8 @@ export class AppComponent implements OnInit {
 
   toggleMute() {
     this.isMuted = !this.isMuted;
-    const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
-    audio.muted = this.isMuted;
+    // const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
+    // audio.muted = this.isMuted;
     visualizerSetMute(this.isMuted);
   }
 
