@@ -33,6 +33,10 @@ function visualizerChangeSong(songFilePath, startTime) {
   });
 }
 
+function visualizerSeek(time) {
+  audio.jump(time);
+}
+
 function setup() {
   let albumArt = select('#album-art');
   let canvas = createCanvas(albumArt.width, albumArt.height, WEBGL);

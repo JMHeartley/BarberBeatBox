@@ -5,6 +5,7 @@ import { Observable, map } from 'rxjs';
 
 declare function visualizerChangeSong(songFilePath: string, startTime: number): void;
 declare function visualizerTogglePlay(isPlaying: boolean): void;
+declare function visualizerSeek(seekTime: number): void;
 
 @Component({
   selector: 'app-root',
@@ -179,7 +180,9 @@ export class AppComponent implements OnInit {
     const rect = progressBar.getBoundingClientRect();
     const offsetX = event.clientX - rect.left;
     const seekTime = (offsetX / rect.width) * this.audioPlayer.nativeElement.duration;
+
     this.audioPlayer.nativeElement.currentTime = seekTime;
+    visualizerSeek(seekTime);
   }
 
   prependFilePathPrefix(filePath: string): string {
