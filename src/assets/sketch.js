@@ -116,16 +116,6 @@ function draw() {
   sphere(100, 400, 400);
 }
 
-// function mousePressed() {
-//   if (isPressed) {
-//     audio.pause();
-//     isPressed = false;
-//   }
-//   else {
-//     isPressed = true;
-//     audio.loop();
-//   }
-// }
 function visualizerTogglePlay(isPlaying) {
   if (isPlaying) {
     audio.pause();
