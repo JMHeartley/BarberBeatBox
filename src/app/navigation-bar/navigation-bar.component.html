@@ -30,6 +30,19 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+                    <div class="col" *ngFor="let song of this.playlist">
+                        <figure class="figure">
+                            <img [src]="this.prependFilePathPrefix(song.albumCoverFilePath)"
+                                class="figure-img img-fluid rounded"
+                                alt="Album art for {{song.album}} by {{song.artist}}">
+                            <figcaption class="figure-caption">
+                                <h6 class="fw-bold">{{song.title}}</h6>
+                                <p>{{song.artist}}</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

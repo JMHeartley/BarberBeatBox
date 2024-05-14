@@ -8,4 +8,12 @@ import { Song } from '../shared/song.model';
 })
 export class NavigationBarComponent {
   @Input() playlist: Song[];
+
+  prependFilePathPrefix(filePath: string | undefined): string {
+    if (filePath === undefined) {
+      return '';
+    }
+
+    return `assets/music/${filePath}`;
+  }
 }
