@@ -17,6 +17,10 @@ body {
     height: 3rem !important;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 .image-fluid {
     width: auto;
     object-fit: contain;
