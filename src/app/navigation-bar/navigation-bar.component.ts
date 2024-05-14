@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Song } from '../shared/song.model';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: []
 })
 export class NavigationBarComponent {
-
+  @Input() playlist: Song[];
 }

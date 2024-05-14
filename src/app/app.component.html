@@ -1,5 +1,5 @@
 <div class="h-100 d-flex flex-column">
-    <app-navigation-bar></app-navigation-bar>
+    <app-navigation-bar [playlist]="this.playlist"></app-navigation-bar>
 
     <div class="flex-grow-1 position-sm-relative">
         <audio #audioPlayer (timeupdate)="this.updateTime($event)" (ended)="this.playNextSong()">
