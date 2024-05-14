@@ -12,9 +12,25 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Playlist</a>
+                    <button type="button" class="nav-link btn btn-link" data-bs-toggle="modal"
+                        data-bs-target="#playlistModal">
+                        Playlist
+                    </button>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<div class="modal fade" id="playlistModal" tabindex="-1" aria-labelledby="playlistModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="playlistModalLabel">What are you feeling right now?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
