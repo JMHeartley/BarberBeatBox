@@ -35,9 +35,9 @@ export class AppComponent implements OnInit {
       this.playlist = songs;
     });
 
-    const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
-    audio.muted = true;
-    visualizerSetVolume(this.volume);
+    // const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
+    // audio.muted = true;
+    // visualizerSetVolume(this.volume);
   }
 
   loadSongs(): Observable<Song[]> {
@@ -84,14 +84,14 @@ export class AppComponent implements OnInit {
     audio.load();
 
     audio.currentTime = startTime;
-    // audio.muted = this.isMuted;
+    audio.muted = this.isMuted;
 
     audio.volume = this.volume;
-    visualizerSetVolume(this.volume);
+    // visualizerSetVolume(this.volume);
 
     this.isPlaying = true;
     audio.play();
-    visualizerChangeSong(this.prependFilePathPrefix(song.audioFilePath), startTime);
+    // visualizerChangeSong(this.prependFilePathPrefix(song.audioFilePath), startTime);
   }
 
   playLivestream() {
@@ -122,7 +122,7 @@ export class AppComponent implements OnInit {
     } else {
       audio.play();
     }
-    visualizerTogglePlay(this.isPlaying);
+    // visualizerTogglePlay(this.isPlaying);
     this.isPlaying = !this.isPlaying;
   }
 
@@ -149,16 +149,16 @@ export class AppComponent implements OnInit {
 
   toggleMute() {
     this.isMuted = !this.isMuted;
-    // const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
-    // audio.muted = this.isMuted;
-    visualizerSetMute(this.isMuted);
+    const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
+    audio.muted = this.isMuted;
+    // visualizerSetMute(this.isMuted);
   }
 
   updateVolume() {
     const audio = this.audioPlayer.nativeElement as HTMLAudioElement;
     console.log("Volume", this.volume);
     audio.volume = this.volume;
-    visualizerSetVolume(this.volume);
+    // visualizerSetVolume(this.volume);
   }
 
   updateTime(event: any) {
@@ -192,7 +192,7 @@ export class AppComponent implements OnInit {
     const seekTime = (offsetX / rect.width) * this.audioPlayer.nativeElement.duration;
 
     this.audioPlayer.nativeElement.currentTime = seekTime;
-    visualizerSeek(seekTime);
+    // visualizerSeek(seekTime);
   }
 
   prependFilePathPrefix(filePath: string): string {
