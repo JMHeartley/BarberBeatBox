@@ -18,7 +18,8 @@ export class AppComponent implements OnInit {
   @ViewChild('audioPlayer', { static: true }) audioPlayer: ElementRef;
 
   title = 'BarberBeatBox';
-  nowPlaying: Song;
+  nowPlaying: Song | null;
+  isStarted: boolean;
   isPlaying: boolean;
   isLive: boolean;
   isMuted: boolean;
@@ -113,6 +114,11 @@ export class AppComponent implements OnInit {
     this.playSong(currentSong[0], currentSong[1]);
   }
 
+  start() {
+    this.isStarted = true;
+    this.playLivestream();
+  }
+
   togglePlay() {
     this.isLive = false;
 
@@ -129,7 +135,7 @@ export class AppComponent implements OnInit {
   goToPreviousSong() {
     this.isLive = false;
 
-    const currentSongIndex = this.playlist.findIndex(song => song.title === this.nowPlaying.title);
+    const currentSongIndex = this.playlist.findIndex(song => song.title === this.nowPlaying?.title);
     const previousSongIndex = (currentSongIndex - 1 + this.playlist.length) % this.playlist.length;
     const previousSong = this.playlist[previousSongIndex];
     this.playSong(previousSong, 0);
@@ -141,7 +147,7 @@ export class AppComponent implements OnInit {
   }
 
   playNextSong() {
-    const currentSongIndex = this.playlist.findIndex(song => song.title === this.nowPlaying.title);
+    const currentSongIndex = this.playlist.findIndex(song => song.title === this.nowPlaying?.title);
     const nextSongIndex = (currentSongIndex + 1) % this.playlist.length;
     const nextSong = this.playlist[nextSongIndex];
     this.playSong(nextSong, 0);
@@ -195,7 +201,11 @@ export class AppComponent implements OnInit {
     // visualizerSeek(seekTime);
   }
 
-  prependFilePathPrefix(filePath: string): string {
+  prependFilePathPrefix(filePath: string | undefined): string {
+    if (filePath === undefined) {
+      return '';
+    }
+
     return `assets/music/${filePath}`;
   }
 }

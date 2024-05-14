@@ -64,7 +64,6 @@ function setup() {
   // peakDetect.onPeak(peakDetected)
 }
 
-//TODO: Add a function to change the shader
 function draw() {
   background(200, 200, 234, 0);
   // background(0)
