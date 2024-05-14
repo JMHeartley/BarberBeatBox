@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Song } from '../app/shared/song.model';
+import { Song } from './shared/song.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
