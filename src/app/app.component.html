@@ -1,24 +1,6 @@
 <div class="h-100 d-flex flex-column">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="assets/images/radio-solid.svg" alt="BarberBeatBox logo" class="image-fluid"
-                    style="height: 1.3rem;" />
-                BarberBeatBox
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Playlist</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <app-navigation-bar></app-navigation-bar>
+
     <div class="flex-grow-1 position-sm-relative">
         <audio #audioPlayer (timeupdate)="this.updateTime($event)" (ended)="this.playNextSong()">
             <source [src]="this.prependFilePathPrefix(this.nowPlaying?.audioFilePath)" type="audio/wav">
