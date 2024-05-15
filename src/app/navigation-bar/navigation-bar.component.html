@@ -32,7 +32,7 @@
             <div class="modal-body">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
                     <div class="col" *ngFor="let song of this.playlist">
-                        <figure class="figure">
+                        <figure class="figure cursor-pointer" (click)="this.onSongClicked(song)">
                             <img [src]="this.prependFilePathPrefix(song.albumCoverFilePath)"
                                 class="figure-img img-fluid rounded"
                                 alt="Album art for {{song.album}} by {{song.artist}}">

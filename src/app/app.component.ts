@@ -205,4 +205,9 @@ export class AppComponent implements OnInit {
 
     return `assets/music/${filePath}`;
   }
+
+  onSongClicked(song: Song) {
+    this.isLive = false;
+    this.playSong(song, 0);
+  }
 }

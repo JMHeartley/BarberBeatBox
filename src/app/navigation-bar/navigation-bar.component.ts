@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Song } from '../shared/song.model';
+
+declare function hideModal(modalId: string): void;
 
 @Component({
   selector: 'app-navigation-bar',
@@ -8,6 +10,7 @@ import { Song } from '../shared/song.model';
 })
 export class NavigationBarComponent {
   @Input() playlist: Song[];
+  @Output() songClicked: EventEmitter<Song> = new EventEmitter<Song>();
 
   prependFilePathPrefix(filePath: string | undefined): string {
     if (filePath === undefined) {
@@ -15,5 +18,11 @@ export class NavigationBarComponent {
     }
 
     return `assets/music/${filePath}`;
+  }
+
+  onSongClicked(song: Song) {
+    hideModal('playlistModal');
+
+    this.songClicked.emit(song);
   }
 }
