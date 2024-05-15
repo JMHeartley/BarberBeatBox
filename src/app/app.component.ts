@@ -79,6 +79,8 @@ export class AppComponent implements OnInit {
   }
 
   playSong(song: Song, startTime: number) {
+    this.isStarted = true;
+
     this.nowPlaying = song;
 
     const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
@@ -112,11 +114,6 @@ export class AppComponent implements OnInit {
     console.log(`The song ${currentSong[0].title} should be playing at ${currentSong[1]} seconds`);
 
     this.playSong(currentSong[0], currentSong[1]);
-  }
-
-  start() {
-    this.isStarted = true;
-    this.playLivestream();
   }
 
   togglePlay() {
