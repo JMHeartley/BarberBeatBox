@@ -199,7 +199,7 @@ export class AppComponent implements OnInit {
   }
 
   prependFilePathPrefix(filePath: string | undefined): string {
-    if (filePath === undefined) {
+    if (filePath === undefined || filePath === null) {
       return '';
     }
 
